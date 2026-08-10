@@ -167,10 +167,10 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 }
 .title-accent { color: var(--nu-tour); }
 .lede {
-  margin: 22px 0 0;
+  margin: 24px 0 0;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 28px; line-height: 1.4;
+  font-size: 34px; line-height: 1.4;
   letter-spacing: 0.01em;
   color: var(--nu-powder);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);
