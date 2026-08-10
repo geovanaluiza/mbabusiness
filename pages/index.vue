@@ -71,19 +71,13 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 
     <!-- Brand -->
     <header class="brand">
-      <img class="shield" src="/images/northwest_shield.png" alt="Northwest University shield" width="84" height="89" />
-      <div class="brand-text">
-        <div class="brand-name">Northwest University</div>
-        <div class="brand-sub">School of Business</div>
-      </div>
+      <img class="logo" src="/images/nu-logo-lockup-reverse.png" alt="Northwest University" />
+      <div class="brand-sub">School of Business</div>
     </header>
 
     <!-- Headline -->
     <div class="headline">
-      <h1 class="title">
-        <span class="title-line">Welcome to the School</span>
-        <span class="title-line">of <span class="title-accent">Business!</span></span>
-      </h1>
+      <h1 class="title">Welcome to the <span class="title-accent">School of Business!</span></h1>
     </div>
 
     <!-- Cohort panel — crossfade, movie-credits scroll inside -->
@@ -145,36 +139,34 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 
 /* === Brand === */
 .brand {
-  display: flex; align-items: center; gap: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
   z-index: 1;
 }
-.shield {
-  width: 84px; height: 89px; object-fit: contain;
+.logo {
+  height: 118px;
+  width: auto;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
 }
-.brand-name {
-  font-family: var(--font-serif);
-  font-size: 34px; line-height: 1.05;
-  color: var(--nu-wisp);
-}
 .brand-sub {
-  margin-top: 6px;
-  font-size: 15px; font-weight: 700;
-  letter-spacing: 0.30em; text-transform: uppercase;
+  font-size: 17px; font-weight: 700;
+  letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--nu-tour);
 }
 
 /* === Headline === */
-.headline { z-index: 1; margin-top: 48px; }
+.headline { z-index: 1; margin-top: 44px; }
 .title {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: 66px; line-height: 1.04;
-  letter-spacing: -0.015em;
+  font-size: 58px; line-height: 1.05;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
   color: var(--nu-wisp);
   text-shadow: 0 10px 50px rgba(0, 0, 0, 0.45);
 }
-.title-line { display: block; }
 .title-accent { color: var(--nu-tour); }
 
 /* === Stage / panel === */
