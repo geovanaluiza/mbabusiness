@@ -81,7 +81,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
     </div>
 
     <!-- Cohort panel — crossfade, movie-credits scroll inside -->
-    <div class="stage">
+    <div class="panel-stage">
       <transition name="xfade">
         <section :key="cohort.title" class="panel">
           <div class="panel-head">
@@ -170,7 +170,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 .title-accent { color: var(--nu-tour); }
 
 /* === Stage / panel === */
-.stage {
+.panel-stage {
   position: relative;
   z-index: 1;
   flex: 1;
