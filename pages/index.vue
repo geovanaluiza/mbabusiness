@@ -6,7 +6,7 @@
 
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-const ROW_H = 100 // px per name row — keep in sync with .name height
+const ROW_H = 110 // px per name row — keep in sync with .name height
 
 const mba = [
   'Blake Prewit',
@@ -107,9 +107,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 
     <!-- Closing -->
     <footer class="closing">
-      <span class="closing-rule" />
       <p class="closing-text">We are excited to partner with you as you pursue your educational and professional goals. Here&rsquo;s to a year of learning, growth, and success!</p>
-      <span class="closing-rule" />
     </footer>
   </div>
 </template>
@@ -168,9 +166,10 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 .title-accent { color: var(--nu-tour); }
 .lede {
   margin: 24px 0 0;
+  max-width: 46ch;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 34px; line-height: 1.4;
+  font-size: 36px; line-height: 1.38;
   letter-spacing: 0.01em;
   color: var(--nu-powder);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);
@@ -242,10 +241,10 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 }
 .name {
   display: flex; align-items: center; justify-content: center;
-  height: 100px;
-  flex: 0 0 100px;
+  height: 110px;
+  flex: 0 0 110px;
   font-family: var(--font-serif);
-  font-size: 58px; font-weight: 500;
+  font-size: 60px; font-weight: 600;
   letter-spacing: 0.015em;
   color: var(--nu-wisp);
   white-space: nowrap;
@@ -269,19 +268,15 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 .closing {
   z-index: 1;
   margin-top: 36px;
-  display: flex; align-items: center; gap: 26px;
-}
-.closing-rule {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(251, 217, 69, 0.45), transparent);
+  display: flex;
+  justify-content: center;
 }
 .closing-text {
   margin: 0;
-  max-width: 34ch;
+  max-width: 32ch;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 26px;
+  font-size: 32px;
   line-height: 1.3;
   text-align: center;
   color: var(--nu-tour);
