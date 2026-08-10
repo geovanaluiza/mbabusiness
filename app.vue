@@ -52,8 +52,8 @@ onUnmounted(() => {
   --nu-tour:      #fbd945;
   --nu-powder:    #eaf4fb;
   --nu-wisp:      #f9f9f9;
-  --font-serif:   'zenon', Georgia, serif;
-  --font-sans:    'proxima-nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif:   'Cormorant Garamond', Georgia, serif;
+  --font-sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
