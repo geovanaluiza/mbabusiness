@@ -1,10 +1,12 @@
 <script setup lang="ts">
 // === School of Business — Fall 2026 Cohort Welcome ===
 // Full-screen welcome display (1080×1920 portrait kiosk).
-// Alternates between the MBA and MSITM cohorts with a slow crossfade.
+// One cohort at a time; names scroll continuously, movie-credits style.
 // Content from Dr. Cawthon's welcome email.
 
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+
+const ROW_H = 84 // px per name row — keep in sync with .name height
 
 const mba = [
   'Blake Prewit',
@@ -38,20 +40,28 @@ const msitm = [
   'Stephanie Joyce Tayag'
 ]
 
-const cohorts = [
-  { title: 'MBA',   sub: 'Fall 2026 Cohort', names: mba },
-  { title: 'MSITM', sub: 'Fall 2026 Cohort', names: msitm }
-]
+const SPEED = 30 // px/s — comfortable reading pace
+
+function makeCohort(title: string, names: string[]) {
+  const dist = names.length * ROW_H
+  return { title, sub: 'Fall 2026 Cohort', names, dist, dur: Math.round(dist / SPEED) }
+}
+
+const cohorts = [makeCohort('MBA', mba), makeCohort('MSITM', msitm)]
 
 const active = ref(0)
 const cohort = computed(() => cohorts[active.value])
-const SLIDE_MS = 14_000
-let timer: ReturnType<typeof setInterval> | null = null
+let timer: ReturnType<typeof setTimeout> | null = null
 
-onMounted(() => {
-  timer = setInterval(() => { active.value = (active.value + 1) % cohorts.length }, SLIDE_MS)
-})
-onUnmounted(() => { if (timer) clearInterval(timer) })
+function arm() {
+  // each slide stays up for one full scroll loop of its list
+  timer = setTimeout(() => {
+    active.value = (active.value + 1) % cohorts.length
+    arm()
+  }, cohorts[active.value].dur * 1000)
+}
+onMounted(arm)
+onUnmounted(() => { if (timer) clearTimeout(timer) })
 </script>
 
 <template>
@@ -76,7 +86,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
       </h1>
     </div>
 
-    <!-- Cohort panels — crossfade -->
+    <!-- Cohort panel — crossfade, movie-credits scroll inside -->
     <div class="stage">
       <transition name="xfade">
         <section :key="cohort.title" class="panel">
@@ -84,23 +94,17 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
             <h2 class="cohort-title">{{ cohort.title }}</h2>
             <div class="cohort-sub">{{ cohort.sub }}</div>
           </div>
-          <ul class="names" :class="{ 'names--short': cohort.names.length <= 10 }">
-            <li v-for="n in cohort.names" :key="n" class="name">
-              <span class="name-dot" />{{ n }}
-            </li>
-          </ul>
+          <div class="names-viewport">
+            <ul
+              class="names names--scroll"
+              :style="{ '--dist': cohort.dist + 'px', '--dur': cohort.dur + 's' }"
+            >
+              <li v-for="(n, i) in [...cohort.names, ...cohort.names]" :key="i" class="name">{{ n }}</li>
+            </ul>
+          </div>
         </section>
       </transition>
 
-      <!-- progress dots -->
-      <div class="dots" aria-hidden="true">
-        <span
-          v-for="(c, i) in cohorts"
-          :key="c.title"
-          class="dot"
-          :class="{ active: i === active }"
-        />
-      </div>
     </div>
 
     <!-- Closing -->
@@ -173,7 +177,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
 .title-line { display: block; }
 .title-accent { color: var(--nu-tour); }
 
-/* === Stage / panels === */
+/* === Stage / panel === */
 .stage {
   position: relative;
   z-index: 1;
@@ -187,17 +191,20 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
   display: flex;
   flex-direction: column;
   border-radius: 32px;
-  padding: 48px 52px;
+  padding: 48px 52px 0;
   background: rgba(255, 255, 255, 0.055);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 24px 60px rgba(0, 0, 0, 0.30);
   backdrop-filter: blur(8px);
+  overflow: hidden;
 }
 .panel-head {
+  flex: 0 0 auto;
+  text-align: center;
   padding-bottom: 30px;
-  margin-bottom: 34px;
+  margin-bottom: 10px;
   border-bottom: 1px solid rgba(251, 217, 69, 0.25);
 }
 .cohort-title {
@@ -214,48 +221,41 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
   color: var(--nu-skylight);
   opacity: 0.9;
 }
+
+/* === Movie-credits scroll === */
+.names-viewport {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 9%, black 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, black 9%, black 88%, transparent 100%);
+}
 .names {
   list-style: none;
   margin: 0; padding: 0;
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 1fr;
-  column-gap: 40px;
-  align-content: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.names--scroll {
+  animation: scrollUp var(--dur) linear infinite;
+  will-change: transform;
 }
 .name {
-  display: flex; align-items: center; gap: 18px;
-  font-size: 32px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  height: 84px;
+  flex: 0 0 84px;
+  font-family: var(--font-serif);
+  font-size: 46px; font-weight: 500;
+  letter-spacing: 0.015em;
   color: var(--nu-wisp);
   white-space: nowrap;
-}
-.names--short .name { font-size: 38px; }
-.name-dot {
-  flex: 0 0 auto;
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--nu-tour);
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* dots */
-.dots {
-  position: absolute;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
-  display: flex; gap: 14px;
-  z-index: 3;
-}
-.dot {
-  width: 12px; height: 12px; border-radius: 50%;
-  background: rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  transition: background 0.4s, transform 0.4s;
-}
-.dot.active {
-  background: var(--nu-tour);
-  transform: scale(1.25);
-  box-shadow: 0 0 16px rgba(251, 217, 69, 0.35);
+@keyframes scrollUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(calc(-1 * var(--dist))); }
 }
 
 /* crossfade */
