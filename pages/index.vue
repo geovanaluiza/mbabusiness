@@ -245,6 +245,8 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   letter-spacing: 0.015em;
   color: var(--nu-wisp);
   white-space: nowrap;
+  -webkit-text-stroke: 2px var(--nu-tour);
+  paint-order: stroke fill;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.35);
 }
 
