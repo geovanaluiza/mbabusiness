@@ -6,7 +6,7 @@
 
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-const ROW_H = 84 // px per name row — keep in sync with .name height
+const ROW_H = 92 // px per name row — keep in sync with .name height
 
 const mba = [
   'Blake Prewit',
@@ -243,10 +243,10 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 }
 .name {
   display: flex; align-items: center; justify-content: center;
-  height: 84px;
-  flex: 0 0 84px;
+  height: 92px;
+  flex: 0 0 92px;
   font-family: var(--font-serif);
-  font-size: 46px; font-weight: 500;
+  font-size: 52px; font-weight: 500;
   letter-spacing: 0.015em;
   color: var(--nu-wisp);
   white-space: nowrap;
