@@ -104,7 +104,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
     <!-- Closing -->
     <footer class="closing">
       <span class="closing-rule" />
-      <p class="closing-text">Here&rsquo;s to a year of learning, growth, and success!</p>
+      <p class="closing-text">Here&rsquo;s to a year of learning and growth &mdash; with Jesus at the center.</p>
       <span class="closing-rule" />
     </footer>
   </div>
