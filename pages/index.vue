@@ -72,7 +72,6 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
     <!-- Brand -->
     <header class="brand">
       <img class="logo" src="/images/nu-logo-lockup-reverse.png" alt="Northwest University" />
-      <div class="brand-sub">School of Business</div>
     </header>
 
     <!-- Headline -->
@@ -151,16 +150,10 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   z-index: 1;
 }
 .logo {
-  height: 118px;
+  height: 96px;
   width: auto;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
 }
-.brand-sub {
-  font-size: 17px; font-weight: 700;
-  letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--nu-tour);
-}
-
 /* === Headline === */
 .headline { z-index: 1; margin-top: 44px; }
 .title {
@@ -175,7 +168,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 .title-accent { color: var(--nu-tour); }
 .lede {
   margin: 20px 0 0;
-  font-size: 21px; line-height: 1.45;
+  font-size: 24px; line-height: 1.45;
   color: var(--nu-powder);
   opacity: 0.92;
 }
