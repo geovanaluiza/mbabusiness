@@ -109,7 +109,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
     <!-- Closing -->
     <footer class="closing">
       <span class="closing-rule" />
-      <p class="closing-text">We are excited to partner with you as you pursue your educational and professional goals. <span class="closing-accent">Here&rsquo;s to a year of learning, growth, and success!</span></p>
+      <p class="closing-text">We are excited to partner with you as you pursue your educational and professional goals. Here&rsquo;s to a year of learning, growth, and success!</p>
       <span class="closing-rule" />
     </footer>
   </div>
@@ -288,11 +288,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   font-size: 26px;
   line-height: 1.3;
   text-align: center;
-  color: var(--nu-powder);
-}
-.closing-accent {
   color: var(--nu-tour);
-  white-space: nowrap;
 }
 
 @media (prefers-reduced-motion: reduce) {
