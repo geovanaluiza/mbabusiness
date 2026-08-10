@@ -57,6 +57,12 @@ onUnmounted(() => {
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #__nuxt {
