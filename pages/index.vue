@@ -165,13 +165,10 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 }
 .title-accent { color: var(--nu-tour); }
 .lede {
-  margin: 24px 0 0;
-  max-width: 46ch;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 36px; line-height: 1.38;
-  letter-spacing: 0.01em;
-  color: var(--nu-powder);
+  margin: 22px 0 0;
+  max-width: 52ch;
+  font-size: 30px; line-height: 1.35;
+  color: var(--nu-wisp);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);
 }
 
