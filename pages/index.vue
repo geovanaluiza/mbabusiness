@@ -158,6 +158,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   margin: 0;
   font-family: var(--font-serif);
   font-size: 58px; line-height: 1.05;
+  font-weight: 600;
   letter-spacing: -0.01em;
   white-space: nowrap;
   color: var(--nu-wisp);
@@ -165,9 +166,9 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 }
 .title-accent { color: var(--nu-tour); }
 .lede {
-  margin: 22px 0 0;
-  max-width: 52ch;
-  font-size: 30px; line-height: 1.35;
+  margin: 20px 0 0;
+  max-width: 54ch;
+  font-size: 26px; line-height: 1.32;
   color: var(--nu-wisp);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);
 }
@@ -206,6 +207,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   margin: 0;
   font-family: var(--font-serif);
   font-size: 96px; line-height: 1;
+  font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--nu-tour);
 }
@@ -271,9 +273,8 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 .closing-text {
   margin: 0;
   max-width: 32ch;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 32px;
+  font-family: var(--font-sans);
+  font-size: 26px;
   line-height: 1.3;
   text-align: center;
   color: var(--nu-tour);
