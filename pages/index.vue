@@ -6,7 +6,7 @@
 
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-const ROW_H = 92 // px per name row — keep in sync with .name height
+const ROW_H = 100 // px per name row — keep in sync with .name height
 
 const mba = [
   'Blake Prewit',
@@ -78,6 +78,11 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
     <!-- Headline -->
     <div class="headline">
       <h1 class="title">Welcome to the <span class="title-accent">School of Business!</span></h1>
+      <p class="lede">
+        The School of Business is excited to welcome you as you begin this next chapter of your
+        academic and professional journey. We are honored that you have chosen to join our community
+        and look forward to supporting your growth as ethical, innovative, and impactful leaders.
+      </p>
     </div>
 
     <!-- Cohort panel — crossfade, movie-credits scroll inside -->
@@ -104,7 +109,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
     <!-- Closing -->
     <footer class="closing">
       <span class="closing-rule" />
-      <p class="closing-text">Here&rsquo;s to a year of learning and growth &mdash; with Jesus at the center.</p>
+      <p class="closing-text">We are excited to partner with you as you pursue your educational and professional goals. <span class="closing-accent">Here&rsquo;s to a year of learning, growth, and success!</span></p>
       <span class="closing-rule" />
     </footer>
   </div>
@@ -168,6 +173,12 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   text-shadow: 0 10px 50px rgba(0, 0, 0, 0.45);
 }
 .title-accent { color: var(--nu-tour); }
+.lede {
+  margin: 20px 0 0;
+  font-size: 21px; line-height: 1.45;
+  color: var(--nu-powder);
+  opacity: 0.92;
+}
 
 /* === Stage / panel === */
 .panel-stage {
@@ -235,10 +246,10 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 }
 .name {
   display: flex; align-items: center; justify-content: center;
-  height: 92px;
-  flex: 0 0 92px;
+  height: 100px;
+  flex: 0 0 100px;
   font-family: var(--font-serif);
-  font-size: 52px; font-weight: 500;
+  font-size: 58px; font-weight: 500;
   letter-spacing: 0.015em;
   color: var(--nu-wisp);
   white-space: nowrap;
@@ -271,9 +282,15 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 }
 .closing-text {
   margin: 0;
+  max-width: 34ch;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 30px;
+  font-size: 26px;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--nu-powder);
+}
+.closing-accent {
   color: var(--nu-tour);
   white-space: nowrap;
 }
