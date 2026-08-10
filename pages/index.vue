@@ -167,10 +167,13 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 }
 .title-accent { color: var(--nu-tour); }
 .lede {
-  margin: 20px 0 0;
-  font-size: 24px; line-height: 1.45;
+  margin: 22px 0 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 28px; line-height: 1.4;
+  letter-spacing: 0.01em;
   color: var(--nu-powder);
-  opacity: 0.92;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);
 }
 
 /* === Stage / panel === */
