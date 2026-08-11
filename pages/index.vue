@@ -271,11 +271,9 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 }
 .closing-text {
   margin: 0;
-  max-width: 32ch;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 32px;
-  line-height: 1.3;
+  max-width: 34ch;
+  font-size: 30px;
+  line-height: 1.35;
   text-align: center;
   color: var(--nu-tour);
 }
