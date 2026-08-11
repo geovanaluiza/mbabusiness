@@ -243,7 +243,8 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   font-family: var(--font-serif);
   font-size: 60px; font-weight: 600;
   letter-spacing: 0.015em;
-  color: var(--nu-tour);
+  color: var(--nu-wisp);
+  font-style: italic;
   white-space: nowrap;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.35);
 }
