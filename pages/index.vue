@@ -78,7 +78,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
     <div class="headline">
       <h1 class="title">Welcome to the <span class="title-accent">School of Business!</span></h1>
       <p class="lede">
-        The School of Business is excited to welcome you as you begin this next chapter of your
+        We are excited to welcome you as you begin this next chapter of your
         academic and professional journey. We are honored that you have chosen to join our community
         and look forward to supporting your growth as ethical, innovative, and impactful leaders.
       </p>
@@ -153,7 +153,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
 }
 /* === Headline === */
-.headline { z-index: 1; margin-top: 44px; }
+.headline { z-index: 1; margin-top: 68px; }
 .title {
   margin: 0;
   font-family: var(--font-serif);
@@ -178,7 +178,8 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   z-index: 1;
   flex: 1;
   min-height: 0;
-  margin-top: 36px;
+  margin-top: 44px;
+  margin-bottom: 30px;
 }
 .panel {
   position: absolute;
