@@ -71,7 +71,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
 
     <!-- Brand -->
     <header class="brand">
-      <img class="logo" src="/images/nu-logo-lockup-reverse.png" alt="Northwest University" />
+      <img class="logo" src="/images/sob-logo-reverse.png" alt="Northwest University School of Business" />
     </header>
 
     <!-- Headline -->
