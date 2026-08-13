@@ -80,7 +80,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
       <p class="lede">
         We are excited to welcome you as you begin this next chapter of your
         academic and professional journey. We are honored that you have chosen to join our community
-        and look forward to supporting your growth as ethical, innovative, and impactful leaders.
+        and look forward to supporting your growth as ethical, innovative, and impactful&nbsp;leaders.
       </p>
     </div>
 
@@ -148,12 +148,12 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   z-index: 1;
 }
 .logo {
-  height: 96px;
+  height: 112px;
   width: auto;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
 }
 /* === Headline === */
-.headline { z-index: 1; margin-top: 68px; }
+.headline { z-index: 1; margin-top: 84px; }
 .title {
   margin: 0;
   font-family: var(--font-serif);
@@ -179,7 +179,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   flex: 1;
   min-height: 0;
   margin-top: 44px;
-  margin-bottom: 30px;
+  margin-bottom: 52px;
 }
 .panel {
   position: absolute;
