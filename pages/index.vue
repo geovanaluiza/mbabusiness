@@ -79,7 +79,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
       <h1 class="title">Welcome to the <span class="title-accent">School of Business!</span></h1>
       <p class="lede">
         We are honored that you have chosen to join our community
-        and look forward to supporting your growth as ethical, innovative, and impactful&nbsp;leaders.
+        and look forward to supporting you as MBI and MSITM&nbsp;students.
       </p>
     </div>
 
