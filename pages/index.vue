@@ -78,8 +78,7 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
     <div class="headline">
       <h1 class="title">Welcome to the <span class="title-accent">School of Business!</span></h1>
       <p class="lede">
-        We are excited to welcome you as you begin this next chapter of your
-        academic and professional journey. We are honored that you have chosen to join our community
+        We are honored that you have chosen to join our community
         and look forward to supporting your growth as ethical, innovative, and impactful&nbsp;leaders.
       </p>
     </div>
